@@ -24,37 +24,6 @@ def get_jira():
 
 def validate_ett_file(data):
     if len(data) > 0:
-        headers = data[0]
-        if len(headers) > 0:
-            if headers[0] != "Assignee":
-                print("1st column has to be Assignee")
-                return False
-            if headers[1] != "Issue Type":
-                print("2nd column has to be Issue Type")
-                return False
-            if headers[2] != "Summary":
-                print("3rd column has to be Summary")
-                return False
-            if headers[3] != "Description":
-                print("4th column has to be Description")
-                return False
-            if headers[4] != "Test Execution Link":
-                print("5th column has to be Test Execution Link")
-                return False
-            if headers[5] != "Auto Execution Result":
-                print("6th column has to be Auto Execution Result")
-                return False
-            if headers[6] != "Manual Execution Result":
-                print("7th column has to be Auto Manual Execution Result")
-                return False
-            if headers[7] != "Project Key":
-                print("8th column has to be Project Key")
-                return False
-    return True
-
-
-def validate_ett_file(data):
-    if len(data) > 0:
         if len(headers) > 0:
             if headers[0] != "Assignee":
                 return False
