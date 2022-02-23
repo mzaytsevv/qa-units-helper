@@ -16,18 +16,18 @@ Linux \ Mac:
 ```
 export JIRA_EMAIL=maxim.zaytsev@gigster.com
 ```
-Windows: 
+**Windows:** 
 ```
 set JIRA_EMAIL=maxim.zaytsev@gigster.com
 ```
 Note: it is set only in the current terminal session 
 
-**How to run: **
+**How to run:**
 ```
 python create_wu.py path_to_csv_file
 ```
 
-Example: 
+**Example:** 
 ```
 python create_wu.py ./qa_wu_import_template_ett.csv
 ```
