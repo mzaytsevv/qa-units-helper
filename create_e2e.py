@@ -70,15 +70,14 @@ def create_tickets_and_links(tickets_with_links):
     for ticket_with_links in tickets_with_links:
         try:
             ticket = ticket_with_links[0]
-            #issue_created = jira.create_issue(fields=ticket)
-            #print(f"{issue_created.key}")
-            print(f"============== new ticket")
+            issue_created = jira.create_issue(fields=ticket)
+            print(f"{issue_created.key}")
             try:
                 tickets_to_link = ticket_with_links[1]
                 for ticket_to_link in tickets_to_link:
                     ticket_to_link = ticket_to_link.strip()
-                    #issue_link = jira.create_issue_link(type='tests', inwardIssue=issue_created.key,
-                    #                                    outwardIssue=ticket_to_link)
+                    issue_link = jira.create_issue_link(type='tests', inwardIssue=issue_created.key,
+                                                        outwardIssue=ticket_to_link)
                     print(f"\t'tests' -> {ticket_to_link}")
             except Exception as e:
                 print(f"Error while linking the issue '{issue_created.key}' to '{ticket_to_link}'. \n\tException: {e}")
