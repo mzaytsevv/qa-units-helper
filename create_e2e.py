@@ -33,13 +33,13 @@ def get_jira():
     return None
 
 
-def validate_e2e_file(data):
-    if len(data) > 0:
+def validate_e2e_file(headers):
+    if len(headers) > 0:
         return True
     return False
 
 
-def e2e_tickets(data):
+def e2e_tickets(data, headers):
     tickets = []
     for line in data:
         line_json = {}
@@ -57,7 +57,6 @@ def e2e_tickets(data):
                 line_json[outgoing_header] = outgoing_value
             elif incoming_header == "Outward issue link (Tests)":
                 outgoing_value = line[num_column]
-                print(f" outgoing_value: {outgoing_value}, num_column= {num_column}")
                 if outgoing_value != "":
                     links.append(outgoing_value)
             num_column = num_column + 1
@@ -101,7 +100,7 @@ if __name__ == "__main__":
                 if len(data) > 0:
                     if validate_e2e_file(headers):
                         print("Got E2E CSV")
-                        ticket_json_with_links = e2e_tickets(data)
+                        ticket_json_with_links = e2e_tickets(data, headers)
                         create_tickets_and_links(ticket_json_with_links)
                     else:
                         print("CSV has not E2E format")
